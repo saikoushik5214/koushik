@@ -31,7 +31,15 @@ app.listen(port,()=>{
 
 
 app.get("/",(req,res)=>{
-    res.send("Hi i am root node")
+    res.render("home.ejs");
+})
+
+app.get("/listings/about",(req,res)=>{
+    res.render("about.ejs");
+})
+
+app.get("/listings/contact",(req,res)=>{
+    res.render("contact.ejs");
 })
 
 

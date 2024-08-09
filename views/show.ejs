@@ -1,26 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show About the List</title>
-</head>
+<% layout("/Layouts/boilerplate") %>
 <body>
-    <h3>Listings Details</h3>
+    <h2>Listings Details</h2>
     
-    </form>
-    <ul>
-        <li><%= data.title %></li>
-        <li><%= data.description %></li>
-        <li>&#8377;<%= data.price.toLocaleString("en-IN")%></li>
-        <li><%= data.location %></li>
-        <li><%= data.country %></li>
+    <div class="md-center">
+        <br><br><br>
+        <h3><%= data.title %></h3>
+        <br>
+        <div>
+            <img src="<%= data.image %>" alt="photo" width="500px">
+            
+        </div>
+        <p><%= data.description %></p>
+        <p>&#8377;<%= data.price.toLocaleString("en-IN")%></p>
+        <p><%= data.location %></p>
+        <p><%= data.country %></p>
         
-    </ul>
-    <a href="/listings/<%= data.id %>/edit">Edit this Listing</a>
-    <form action="/listings/<%= data.id %>?_method=DELETE" method="post">
-        <button>Delete this Listing</button>
-    </form>
+        <div class="first">
+            <div>
+                <form action="/listings/<%= data.id %>/edit" method="get">
+                    <button>Edit</button>
+                </form>
+            </div>
+            <div>
+                
+        <form action="/listings/<%= data.id %>?_method=DELETE" method="post">
+            <button id="del">Delete </button>
+        </form>
+            </div>
+        </div>
+        
+    </div>
+        
+    
     
 </body>
-</html>
